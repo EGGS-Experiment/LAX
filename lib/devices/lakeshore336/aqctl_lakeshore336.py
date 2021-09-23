@@ -3,7 +3,7 @@
 import argparse
 import logging
 
-from EGGS_artiq.lib.devices.lakeshore_driver import LakeShore336
+from EGGS_artiq.lib.devices.lakeshore336.lakeshore_driver import LakeShore336
 from sipyco.pc_rpc import simple_server_loop
 import sipyco.common_args as sca
 
@@ -13,7 +13,7 @@ def get_argparser():
     parser = argparse.ArgumentParser(description = "ARTIQ controller for LakeShore Cryogenics 336 temperature controllers")
     parser.add_argument("-d",\
                         "--device",\
-                        default = "gpib://socket://10.255.6.189:1234-5",\
+                        default = "COM32",\
                         help = "device's hardware address")
 
     sca.simple_network_args(parser, 4300)
