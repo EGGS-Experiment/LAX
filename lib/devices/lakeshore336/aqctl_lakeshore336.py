@@ -22,6 +22,7 @@ class Lakeshore336(object):
         self.ser.write('KRDG? ' + str(output_channel) + TERMINATOR)
         resp = self.ser.read_until()
         resp = np.array(resp.split(','), dtype=float)
+        print(resp)
         return resp
 
     def close(self):
