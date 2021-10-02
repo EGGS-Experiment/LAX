@@ -1,7 +1,7 @@
 from serial import Serial, PARITY_ODD
 from sipyco.pc_rpc import simple_server_loop, Client
 import logging, argparse
-import sipyco.common_args as sca
+#import sipyco.common_args as sca
 
 logger = logging.getLogger(__name__)
 
