@@ -59,26 +59,27 @@ class Lakeshore336(object):
     def close(self):
         self.ser.close()
 
-class Lakeshore3362(LabradServer):
-    name = "lakeshore2"
-    regKey = "lakeshore2"
-    serNode = getNodeName()
-
-    def initServer(self):
-        print("thkim")
-
-    # TEMPERATURE DIODES
-    @setting(111,'Read Temperature')
-    def temperature_read(self, c):
-        """
-        Get sensor temperature
-        """
-        print("thkim")
-
 class TH1(EnvExperiment):
     """TH1"""
     # def run(self):
     #     simple_server_loop({"Lakeshore336": Lakeshore336}, "localhost", 7921)
+
+    class Lakeshore3362(LabradServer):
+        name = "lakeshore2"
+        regKey = "lakeshore2"
+        serNode = getNodeName()
+
+        def initServer(self):
+            print("thkim")
+
+        # TEMPERATURE DIODES
+        @setting(111, 'Read Temperature')
+        def temperature_read(self, c):
+            """
+            Get sensor temperature
+            """
+            print("thkim")
+
     def run(self):
         from labrad import util
         util.runServer(Lakeshore3362())
